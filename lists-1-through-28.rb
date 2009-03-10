@@ -44,7 +44,7 @@ def flatten( list )
   return [ list ] unless list.is_a? Array
 
   list.inject( [] ) do | ary, item |
-    ary + my_flatten( item )
+    ary + flatten( item )
   end
 end
 
