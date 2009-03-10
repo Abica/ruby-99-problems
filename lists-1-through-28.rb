@@ -112,13 +112,13 @@ end
 
 # Problem 14
 # Duplicate the elements of a list. 
-def duplicate( list )
-  replicate list, 2
+def dupli( list )
+  repli list, 2
 end
 
 # Problem 15
 # Replicate the elements of a list a given number of times. 
-def replicate( list, times )
+def repli( list, times )
   list.inject( [] ) do | ary, item |
     ary + ( [ item ] * times )
   end
@@ -201,6 +201,9 @@ end
 
 # Problem 25
 # Generate a random permutation of the elements of a list. 
+def rnd_permu( list )
+  rnd_select list, list.size - 1
+end
 
 # Problem 26
 # Generate the combinations of K distinct objects chosen from the N elements of a list In how many ways can a committee of 3 be chosen from a group of 12 people? We all know that there are C(12,3) = 220 possibilities (C(N,K) denotes the well-known binomial coefficients). For pure mathematicians, this result may be great. But we want to really generate all the possibilities in a list. 
@@ -210,8 +213,25 @@ end
 
 # a) In how many ways can a group of 9 people work in 3 disjoint subgroups of 2, 3 and 4 persons? Write a function that generates all the possibilities and returns them in a list.
 
-
 # b) Generalize the above predicate in a way that we can specify a list of group sizes and the predicate will return a list of groups. 
 
 # Problem 28
 # Sorting a list of lists according to length of sublists 
+
+# a) We suppose that a list contains elements that are lists themselves. The objective is to sort the elements of this list according to their length. E.g. short lists first, longer lists later, or vice versa.
+def lsort( list )
+  list.sort
+end
+
+# b) Again, we suppose that a list contains elements that are lists themselves. But this time the objective is to sort the elements of this list according to their length frequency; i.e., in the default, where sorting is done ascendingly, lists with rare lengths are placed first, others with a more frequent length come later. 
+#
+# I made this one extra special, just for you, Chris ;)
+def lfsort( list )
+  frequencies = list.inject( {} ) do | hsh, item |
+    hsh[ item.size ] ||= []
+    hsh[ item.size ] << item
+    hsh
+  end
+
+  frequencies.sort.inject( [] ) { | ary, item | ary + item.last }
+end
