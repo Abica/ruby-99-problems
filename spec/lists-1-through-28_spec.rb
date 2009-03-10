@@ -112,7 +112,9 @@ describe "Lists" do
 
   describe "Problem 17 - split" do
     it "should split an array into 2 parts, where the first array is size n and the second is the remainder" do
-      left, right = split( @list, 4 )
+      n = 4
+      left, right = split( @list, n )
+      left.size.should == n
       ( left.size + right.size ).should == @list.size
       ( left + right ).should == @list
     end
