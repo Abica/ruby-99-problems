@@ -6,5 +6,7 @@ A few things to be aware of:
 - I closely follow the api offered in the original problems, with the exception of boolean methods, which get a '?'.
 - These were done for fun, I've included no bounds checking or error handling at all. I only wrote enough code to satisfy the original requirements of the problem.
 - As a direct result of the above, the specs provided only prove the correctness of each function.
+- These are not meant to be idiomatic Ruby.
+- I'm not striving for efficiency. I'm just hacking around.
 
 Enjoy!
