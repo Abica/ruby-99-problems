@@ -1,19 +1,22 @@
 # Problem 1
 # Find the last element of a list.
 def my_last( list )
-  list[ -1 ]
+  element_at list, list.size
 end
 
 # Problem 2
 # Find the last but one element of a list. 
 def my_but_last( list )
-  list[ -2 ]
+  element_at list, list.size - 1
 end
 
 # Problem 3
 # Find the K'th element of a list. The first element in the list is number 1. 
-def element_at( list, index )
-  list[ ( index - 1 ).abs ]
+def element_at( list, n )
+  size = list.size
+  list.each_with_index do | item, index |
+    break item if n - 1 == index
+  end
 end
 
 # Problem 4
