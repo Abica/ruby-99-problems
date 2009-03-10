@@ -1,7 +1,9 @@
 Welcome to 99 problems in Ruby!
 
+These problems are based on the Haskell version of 99 problems, which can be found here: http://www.haskell.org/haskellwiki/99_Haskell_exercises. Actually, when a Lisp and Haskell example are shown, the api from the Lisp version is used. This is due to Haskell's homogeneous lists. Lisp and Ruby share heterogeneous lists, and thus the examples are a better fit for Ruby.
+
 A few things to be aware of:
-- I closely follow the api offered in the original problems, with the exception of boolean methods, which get a ?
+- I closely follow the api offered in the original problems, with the exception of boolean methods, which get a '?'.
 - These were done for fun, I've included no bounds checking or error handling at all. I only wrote enough code to satisfy the original requirements of the problem.
 - As a direct result of the above, the specs provided only prove the correctness of each function.
 
