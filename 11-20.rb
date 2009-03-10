@@ -74,6 +74,11 @@ end
 
 # Problem 19
 # Rotate a list N places to the left. 
+def rotate( list, n )
+  size = ( n < 0 ) ? list.size + n : n
+  left, right = split( list, size )
+  right + left 
+end
 
 # Problem 20
 # Remove the K'th element from a list. 
