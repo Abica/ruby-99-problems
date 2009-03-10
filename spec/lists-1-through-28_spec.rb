@@ -33,7 +33,7 @@ describe "Lists" do
 
   describe "Problem 5 - reverse" do
     it "should reverse the elements of an array" do
-      reverse( @list.dup ).should == @list.reverse
+      reverse( @list ).should == @list.reverse
     end
   end
 
