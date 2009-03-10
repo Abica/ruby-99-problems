@@ -148,13 +148,13 @@ describe "Lists" do
   describe "Problem 20 - remove_at" do
     it "should return an array with n removed" do
       list = [ 1, 2, 3, 4 ]
-      remove_at( 2, list ).should == [ 1, 2, 4 ]
+      remove_at( 2, list ).should == [ 1, 3, 4 ]
     end
   end
 
   describe "Problem 21 - insert_at" do
     it "should insert an item into an array at n" do
-      insert_at( "s", [ 1, 2, 3 ], 2 ).should == [ 1, 2, "s", 3 ]
+      insert_at( "s", [ 1, 2, 3 ], 2 ).should == [ 1, "s", 2, 3 ]
     end
   end
 

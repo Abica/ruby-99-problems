@@ -176,14 +176,14 @@ end
 # Problem 20
 # Remove the K'th element from a list. 
 def remove_at( index, list )
-  list.delete_at index
+  list.delete_at index - 1
   list
 end
 
 # Problem 21
 # Insert an element at a given position into a list. 
 def insert_at( item, list, n )
-  left, right = split( list, n )
+  left, right = split( list, n - 1 )
   left + [ item ] + right
 end
 
