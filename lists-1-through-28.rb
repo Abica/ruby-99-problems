@@ -161,7 +161,14 @@ end
 # Problem 19
 # Rotate a list N places to the left. 
 def rotate( list, n )
-  size = ( n < 0 ) ? list.size + n : n
+  list_size = list.size
+  negative = n < 0
+  if n > list_size or n < -list_size
+    n = n.abs % list_size
+    n = -n if negative
+  end
+
+  size = negative ? list_size + n : n
   left, right = split( list, size )
   right + left 
 end
@@ -205,7 +212,7 @@ end
 # Problem 25
 # Generate a random permutation of the elements of a list. 
 def rnd_permu( list )
-  rnd_select list, list.size - 1
+  rnd_select list, list.size
 end
 
 # Problem 26
@@ -236,5 +243,5 @@ def lfsort( list )
     hsh
   end
 
-  frequencies.sort.inject( [] ) { | ary, item | ary + item.last }
+  frequencies.sort { | a, b | b <=> a }.inject( [] ) { | ary, item | ary + item.last }
 end

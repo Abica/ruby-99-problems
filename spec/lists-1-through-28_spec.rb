@@ -7,13 +7,13 @@ describe "Lists" do
 
   describe "Problem 1 - my_last" do
     it "should return the last element in an array" do
-      my_last( @list ).should == 5
+      my_last( @list ).should == @list.last
     end
   end
 
   describe "Problem 2 - my_but_last" do
     it "should return the next to last element in an array" do
-      my_but_last( @list ).should == 4
+      my_but_last( @list ).should == @list[ -2 ]
     end
   end
 
@@ -136,10 +136,10 @@ describe "Lists" do
       rotate( list, -2 ).should == [ 4, 5, 1, 2, 3 ]
     end
 
-    it "should return the unaltered list when n is out of bounds" do
+    it "should wrap the list several times when n is out of bounds" do
       list = [ 1, 2, 3, 4, 5 ]
-      rotate( list, 200 ).should == list
-      rotate( list, -200 ).should == list
+      rotate( list, 13 ).should == [ 4, 5, 1, 2, 3 ]
+      rotate( list, -13 ).should == [ 3, 4, 5, 1, 2 ]
     end
   end
 
@@ -147,6 +147,57 @@ describe "Lists" do
     it "should return an array with n removed" do
       list = [ 1, 2, 3, 4 ]
       remove_at( 2, list ).should == [ 1, 2, 4 ]
+    end
+  end
+
+  describe "Problem 21 - insert_at" do
+    it "should insert an item into an array at n" do
+      insert_at( "s", [ 1, 2, 3 ], 2 ).should == [ 1, 2, "s", 3 ]
+    end
+  end
+
+  describe "Problem 22 - range" do
+    it "should return an array of integers from start to stop" do
+      start, stop = 40, 430
+      range( 40, 430 ).should == [ *start..stop ]
+    end
+  end
+
+  describe "Problem 23 - rnd_select" do
+    it "should return a shuffled array of n elements from a source array" do
+      rand_list = rnd_select( @list, 3 )
+      rand_list.size.should == 3
+      rand_list.should_not == @list[ 0...3 ]
+    end
+  end
+
+  describe "Problem 24 - diff_select" do
+    it "should return an array with n removed" do
+      lotto_numbers = diff_select( 7, 10000 )
+      lotto_numbers.size.should == 7
+      lotto_numbers.should_not == diff_select( 7, 10000 )
+    end
+  end
+
+  describe "Problem 25 - rnd_permu" do
+    it "should return a randomly sorted list" do
+      rand_list = rnd_permu( @list )
+      rand_list.should_not == @list
+      rand_list.sort.should == @list
+    end
+  end
+
+  describe "Problem 28a - lsort" do
+    it "should return an array sorted by the length of it's sublists" do
+      list = [ [ 1, 2, 3 ], [ 1, 2 ], [ 1, 2, 3, 4 ], [ 1 ] ]
+      lsort( list ).should == [ [ 1 ], [ 1, 2 ], [ 1, 2, 3 ], [ 1, 2, 3, 4 ] ]
+    end
+  end
+
+  describe "Problem 28b - lfsort" do
+    it "should an array based on the frequency of the length of it's sublists, order by rarity asc" do
+      list = [ [ 1, 2, 3 ], [ 1 ], [ 1, 2 ], [ 2 ], [ 2, 3 ], [ 5 ] ]
+      lfsort( list ).should == [ [ 1, 2, 3 ], [ 1, 2 ], [ 2, 3 ], [ 1 ], [ 2 ], [ 5 ] ]
     end
   end
 end
