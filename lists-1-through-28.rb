@@ -1,19 +1,19 @@
 # Problem 1
 # Find the last element of a list.
 def my_last( list )
-  element_at list, list.size
+  element_at list, length( list )
 end
 
 # Problem 2
 # Find the last but one element of a list. 
 def my_but_last( list )
-  element_at list, list.size - 1
+  element_at list, length( list ) - 1
 end
 
 # Problem 3
 # Find the K'th element of a list. The first element in the list is number 1. 
 def element_at( list, n )
-  size = list.size
+  size = length( list )
   list.each_with_index do | item, index |
     break item if n - 1 == index
   end
@@ -29,7 +29,7 @@ end
 # Reverse a list. 
 def reverse( list )
   new_list = []
-  ( list.size - 1 ).downto( 0 ) do | index |
+  ( length( list ) - 1 ).downto( 0 ) do | index |
     new_list.push list[ index ]
   end
   new_list
@@ -161,14 +161,14 @@ end
 # Problem 19
 # Rotate a list N places to the left. 
 def rotate( list, n )
-  list_size = list.size
+  length( list ) = length( list )
   negative = n < 0
-  if n > list_size or n < -list_size
-    n = n.abs % list_size
+  if n > length( list ) or n < -length( list )
+    n = n.abs % length( list )
     n = -n if negative
   end
 
-  size = negative ? list_size + n : n
+  size = negative ? length( list ) + n : n
   left, right = split( list, size )
   right + left 
 end
@@ -212,7 +212,7 @@ end
 # Problem 25
 # Generate a random permutation of the elements of a list. 
 def rnd_permu( list )
-  rnd_select list, list.size
+  rnd_select list, length( list )
 end
 
 # Problem 26
