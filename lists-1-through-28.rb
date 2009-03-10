@@ -28,10 +28,11 @@ end
 # Problem 5
 # Reverse a list. 
 #
-# for james & alex - nothing like making an O(n) operation take O(n^2) :D
+# for james & alex
 def reverse( list )
   return [] if list.empty?
-  [ my_last( list ) ] + reverse( slice( list, 1, -1 ) )
+  head, *tail = list
+  reverse( tail ) + [ head ]
 end
 
 # Problem 6
