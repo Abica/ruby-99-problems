@@ -27,12 +27,11 @@ end
 
 # Problem 5
 # Reverse a list. 
+#
+# for james
 def reverse( list )
-  new_list = []
-  ( length( list ) - 1 ).downto( 0 ) do | index |
-    new_list.push list[ index ]
-  end
-  new_list
+  return [] if list.empty?
+  [ list.pop ] + reverse( list )
 end
 
 # Problem 6
@@ -161,14 +160,14 @@ end
 # Problem 19
 # Rotate a list N places to the left. 
 def rotate( list, n )
-  length( list ) = length( list )
+  list_size = length( list )
   negative = n < 0
-  if n > length( list ) or n < -length( list )
-    n = n.abs % length( list )
+  if n > list_size or n < -list_size
+    n = n.abs % list_size
     n = -n if negative
   end
 
-  size = negative ? length( list ) + n : n
+  size = negative ? list_size + n : n
   left, right = split( list, size )
   right + left 
 end
