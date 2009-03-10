@@ -88,31 +88,65 @@ describe "Lists" do
   end
 
   describe "Problem 14 - dupli" do
-    it "should duplicate every item in a list"
+    it "should duplicate every item in a list" do
+      dupli( [ 1, 2, 3 ] ).should == [ 1, 1, 2, 2, 3, 3 ]
+    end
   end
 
   describe "Problem 15 - repli" do
-    it "should replicate every item in a list n times"
+    it "should replicate every item in a list n times" do
+      list = [ 1, 2, 3 ]
+      repli( list, 2 ).should == dupli( list )
+      repli( list, 4 ).should == [ 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3 ]
+    end
   end
 
   describe "Problem 16 - drop_every" do
-    it "should remove every n'th element from an array"
+    it "should remove every n'th element from an array" do
+      list = [ 1, 2, 3, 4, 5, 6, 7, 8 ]
+      drop_every( list, 1 ).should be_empty
+      drop_every( list, 2 ).should == [ 1, 3, 5, 7 ]
+      drop_every( list, 3 ).should == [ 1, 2, 4, 5, 7, 8 ]
+    end
   end
 
   describe "Problem 17 - split" do
-    it "should split an array into 2 parts, where the first array is size n and the second is the remainder"
+    it "should split an array into 2 parts, where the first array is size n and the second is the remainder" do
+      left, right = split( @list, 4 )
+      ( left.size + right.size ).should == @list.size
+      ( left + right ).should == @list
+    end
   end
 
   describe "Problem 18 - slice" do
-    it "should return a list containing only elements between start and stop"
+    it "should return a list containing only elements between start and stop, starting with index 1" do
+      start, stop = 2, 4
+      slice( @list, start, stop ).should == @list.slice( start - 1, stop - 1 )
+    end
   end
 
   describe "Problem 19 - rotate" do
-    it "should wrap n items to the left for positive n"
-    it "should wrap n items to the right for negative n"
+    it "should wrap n items to the left for positive n" do
+      list = [ 1, 2, 3, 4, 5 ]
+      rotate( list, 2 ).should == [ 3, 4, 5, 1, 2 ]
+    end
+
+    it "should wrap n items to the right for negative n" do
+      list = [ 1, 2, 3, 4, 5 ]
+      rotate( list, -2 ).should == [ 4, 5, 1, 2, 3 ]
+    end
+
+    it "should return the unaltered list when n is out of bounds" do
+      list = [ 1, 2, 3, 4, 5 ]
+      rotate( list, 200 ).should == list
+      rotate( list, -200 ).should == list
+    end
   end
 
   describe "Problem 20 - remove_at" do
-    it "should return an array with n removed"
+    it "should return an array with n removed" do
+      list = [ 1, 2, 3, 4 ]
+      remove_at( 2, list ).should == [ 1, 2, 4 ]
+    end
   end
 end
