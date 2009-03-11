@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + "/../lists-1-through-28")
+require File.expand_path( File.dirname(__FILE__) + "/../lists-1-through-28" )
 
 describe "Lists" do
   before :each do 
