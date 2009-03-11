@@ -39,4 +39,11 @@ describe "Arithmetic" do
   describe "Problem 36 - prime_factors_mult" do
     it "should return the last element in an array"
   end
+  
+  describe "Problem 39 - prime_r" do
+    it "should return a list of prime numbers in a range" do
+      primes = [ 1, 2, 3, 5, 7, 11 ]
+      prime_r( 1, 12 ).should == primes
+    end
+  end
 end

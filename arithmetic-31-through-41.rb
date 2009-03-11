@@ -41,3 +41,9 @@ end
 # Determine the prime factors of a given positive integer (2).
 def prime_factors_mult( n )
 end
+
+# Problem 39
+# A list of prime numbers. 
+def prime_r( start, stop )
+  ( start..stop ).select { | n | prime? n }
+end
