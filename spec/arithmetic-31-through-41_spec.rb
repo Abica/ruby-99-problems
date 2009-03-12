@@ -29,7 +29,10 @@ describe "Arithmetic" do
   end
 
   describe "Problem 34 - totient_phi" do
-    it "should return the last element in an array"
+    it "should return the last element in an array" do
+      totients_1_to_10 = [ 1, 1, 2, 2, 4, 2, 6, 4, 6 ]
+      (1...10).map {|l| totient_phi l}.should == totients_1_to_10
+    end
   end
 
   describe "Problem 35 - prime_factors" do

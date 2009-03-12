@@ -30,6 +30,10 @@ end
 # Problem 34
 # Calculate Euler's totient function phi(m).
 def totient_phi( m )
+  return 1 if m == 1
+  ( 1...m ).inject( 0 ) do | sum, item |
+    coprime?( m, item ) ? sum + 1 : sum
+  end
 end
 
 # Problem 35
@@ -47,3 +51,9 @@ end
 def prime_r( start, stop )
   ( start..stop ).select { | n | prime? n }
 end
+
+# Problem 40
+# Goldbach's conjecture. Goldbach's conjecture says that every positive even number greater than 2 is the sum of two prime numbers. Example: 28 = 5 + 23. It is one of the most famous facts in number theory that has not been proved to be correct in the general case. It has been numerically confirmed up to very large numbers (much larger than we can go with our Prolog system). Write a predicate to find the two prime numbers that sum up to a given even integer. 
+
+# Problem 41
+# Given a range of integers by its lower and upper limit, print a list of all even numbers and their Goldbach composition. 
